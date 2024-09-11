@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import InputMask from "react-input-mask";
 import "./styles.css";
 
-const ReactHookFormMask = () => {
+const ExternalMask = () => {
   const {
     register,
     handleSubmit,
@@ -13,7 +13,7 @@ const ReactHookFormMask = () => {
     console.log("Form Data Submitted:", data);
   };
 
-  console.log("ReactHookFormMask rendered");
+  console.log("ExternalMask rendered");
 
   return (
     <div className="form-container">
@@ -35,7 +35,12 @@ const ReactHookFormMask = () => {
             })}
           >
             {(inputProps) => (
-              <input {...inputProps} type="text" className="form-control" />
+              <input
+                {...inputProps}
+                type="text"
+                className="form-control"
+                autoFocus
+              />
             )}
           </InputMask>
           {errors.phone && (
@@ -49,4 +54,4 @@ const ReactHookFormMask = () => {
   );
 };
 
-export default ReactHookFormMask;
+export default ExternalMask;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
@@ -9,8 +8,11 @@ const CustomMask = () => {
     setValue,
     formState: { errors },
     trigger,
-  } = useForm();
-  const [phone, setPhone] = useState("0(___) ___ __ __");
+  } = useForm({
+    defaultValues: {
+      phone: "0(___) ___ __ __",
+    },
+  });
 
   const onSubmit = (data) => {
     console.log("Form Data Submitted:", data);
@@ -28,27 +30,26 @@ const CustomMask = () => {
       value = "0(___) ___ __ __";
     }
 
-    setPhone(value);
     setValue("phone", value);
   };
 
   const handleKeyDown = (e) => {
+    const value = e.target.value;
     if (e.key === "Backspace") {
-      let cleanedValue = phone.replace(/\D/g, "");
-
+      let cleanedValue = value.replace(/\D/g, "");
       const cursorPosition = e.target.selectionStart;
+
       if (
         cursorPosition > 0 &&
-        (phone[cursorPosition - 1] === " " ||
-          phone[cursorPosition - 1] === ")" ||
-          phone[cursorPosition - 1] === "(")
+        (value[cursorPosition - 1] === " " ||
+          value[cursorPosition - 1] === ")" ||
+          value[cursorPosition - 1] === "(")
       ) {
         e.target.setSelectionRange(cursorPosition - 1, cursorPosition - 1);
         e.preventDefault();
       }
 
       if (cleanedValue.length <= 1) {
-        setPhone("0(___) ___ __ __");
         setValue("phone", "0(___) ___ __ __");
         e.preventDefault();
       }
@@ -71,7 +72,6 @@ const CustomMask = () => {
           <input
             type="text"
             id="phone"
-            value={phone}
             {...register("phone", {
               required: "Telefon numarası gerekli",
               validate: validatePhone,

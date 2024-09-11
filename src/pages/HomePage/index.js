@@ -9,7 +9,7 @@ const HomePage = () => {
     { name: "Zod Validation", path: "/zod-validation" },
     { name: "Complex Validation", path: "/complex-validation" },
     { name: "Custom Mask", path: "/custom-mask" },
-    { name: "React Hook Form Mask", path: "/react-hook-form-mask" },
+    { name: "External Mask", path: "/external-mask" },
     { name: "Material UI Form", path: "/material-ui-form" },
     { name: "Performance Optimization", path: "/performance-optimization" },
     { name: "Dynamic Fields", path: "/dynamic-fields" },

@@ -11,7 +11,7 @@ import MaterialUIForm from "./pages/MaterialUIForm";
 import PerformanceOptimization from "./pages/PerformanceOptimization";
 import DynamicFields from "./pages/DynamicFields";
 import FormStateManagement from "./pages/FormStateManagement";
-import ReactHookFormMask from "./pages/ReactHookFormMask";
+import ExternalMask from "./pages/ExternalMask";
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
           <Route path="zod-validation" element={<ZodValidation />} />
           <Route path="complex-validation" element={<ComplexValidation />} />
           <Route path="custom-mask" element={<CustomMask />} />
-          <Route path="react-hook-form-mask" element={<ReactHookFormMask />} />
+          <Route path="external-mask" element={<ExternalMask />} />
           <Route path="material-ui-form" element={<MaterialUIForm />} />
           <Route
             path="performance-optimization"
